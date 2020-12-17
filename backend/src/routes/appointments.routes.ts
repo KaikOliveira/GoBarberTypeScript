@@ -18,7 +18,7 @@ appointmentsRouter.get('/', async (request, response) => {
 // Rota create Appointment
 appointmentsRouter.post('/', async (request, response) => {
   try {
-    const { provider, date } = request.body;
+    const { provider_id, date } = request.body;
 
     // Verificação date disponivel
     const parsedDate = parseISO(date);
@@ -28,7 +28,7 @@ appointmentsRouter.post('/', async (request, response) => {
 
     const appointment = await creteAppointment.execute({
       date: parsedDate,
-      provider,
+      provider_id,
     });
 
     return response.json(appointment);
