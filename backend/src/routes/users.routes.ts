@@ -2,6 +2,8 @@ import { Router } from 'express';
 
 import CreateUserService from '../services/CreateUserServices';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const usersRouter = Router();
 
 interface User {
@@ -29,6 +31,11 @@ usersRouter.post('/', async (request, response) => {
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
+});
+
+// Rota up Avatar -- Path alteração de unique
+usersRouter.patch('/avatar', ensureAuthenticated, async (request, response) => {
+  return response.json({ ok: true });
 });
 
 export default usersRouter;
