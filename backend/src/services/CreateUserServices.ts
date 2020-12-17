@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+import { hash } from 'bcryptjs';
 
 import User from '../models/User';
 
@@ -22,11 +23,14 @@ class CreateUserService {
       throw new Error('O Email ja pertence a um usuario.');
     }
 
+    // Criptografia da senha
+    const hashedPassword = await hash(password, 8);
+
     // Create User
     const user = userRepository.create({
       name,
       email,
-      password,
+      password: hashedPassword,
     });
 
     // Save user
