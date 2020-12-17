@@ -1,3 +1,7 @@
 # dependencies
 /backend/node_modules
 /backend/.env
+
+/backend/tmp/*
+/backend/!tmp/.gitkeep
+!tmp/.gitkeep
