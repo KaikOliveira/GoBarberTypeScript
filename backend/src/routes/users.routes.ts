@@ -1,13 +1,13 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import multer from 'multer';
 import uploadConfig from '../config/upload';
 
 import CreateUserService from '../services/CreateUserServices';
+import UpdateUserAvatarService from '../services/CreateUserServices';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const usersRouter = Router();
-
 const upload = multer(uploadConfig);
 
 interface User {
@@ -15,6 +15,7 @@ interface User {
   email: string;
   password?: string;
 }
+
 
 // Rota create User
 usersRouter.post('/', async (request, response) => {
@@ -42,11 +43,21 @@ usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
-  async (request, response) => {
-    console.log(request.file);
+  async (request , response) => {
+    try {
+      const updateUserAvatar = new UpdateUserAvatarService();
 
-    return response.json({ ok: true });
+      const user = await updateUserAvatar.execute({
+        user_id: request.user.id,
+        avatarFilename: request.file.filename,
+      });
+
+      return response.json(user);
+    } catch (err) {
+      return response.status(400).json({ error: err.message });
+    }
   },
 );
+
 
 export default usersRouter;

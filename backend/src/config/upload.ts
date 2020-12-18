@@ -1,11 +1,15 @@
-import patch from 'path';
+import path from 'path';
 import crypto from 'crypto';
 import multer from 'multer';
 
+const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
+
 // Salvar uploads no app
 export default {
+  directory: tmpFolder,
+
   storage: multer.diskStorage({
-    destination: patch.resolve(__dirname, '..', '..', 'tmp'),
+    destination: tmpFolder,
     filename(request, file, callback) {
       // Criptografia do name do up, para evitar repetidas
       const fileHash = crypto.randomBytes(10).toString('hex');
