@@ -3,6 +3,8 @@ import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '../config/auth';
 
+import AppError from '../errors/AppError';
+
 import User from '../models/User';
 
 interface Request {
@@ -25,7 +27,7 @@ class AuthenticateUserService {
     });
 
     if (!user) {
-      throw new Error('Incorreto email/password.');
+      throw new AppError('Incorreto email/password.', 401);
     }
 
     // ----- Verificação de password ---------
@@ -34,7 +36,7 @@ class AuthenticateUserService {
     const passwordMatched = await compare(password, user.password);
 
     if (!passwordMatched) {
-      throw new Error('Incorreto email/password.');
+      throw new AppError('Incorreto email/password.', 401);
     }
 
     // User Autenticado => Gerar um token

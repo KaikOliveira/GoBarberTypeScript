@@ -1,6 +1,8 @@
 import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 
+import AppError from '../errors/AppError';
+
 import User from '../models/User';
 
 // Interface das variaveis para o POST CREATE
@@ -20,7 +22,7 @@ class CreateUserService {
     });
 
     if (checkUserExists) {
-      throw new Error('O Email ja pertence a um usuario.');
+      throw new AppError('O Email ja pertence a um usuario.');
     }
 
     // Criptografia da senha

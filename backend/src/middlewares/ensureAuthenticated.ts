@@ -3,6 +3,8 @@ import { verify } from 'jsonwebtoken';
 
 import authConfig from '../config/auth';
 
+import AppError from '../errors/AppError';
+
 interface TokenPayload {
   iat: number;
   exp: number;
@@ -18,7 +20,7 @@ export default function ensureAuthenticated(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new Error('JWT token is error.');
+    throw new AppError('JWT token is error.', 401);
   }
 
   // Desestruturação de Array [p1, p2, ,p4] - p1 = position1
@@ -33,10 +35,10 @@ export default function ensureAuthenticated(
     request.user = {
       id: sub,
     };
-    //console.log(request.user.id);
+    // console.log(request.user.id);
 
     return next();
   } catch {
-    throw new Error('Invalid JWT token.');
+    throw new AppError('Invalid JWT token.', 401);
   }
 }
