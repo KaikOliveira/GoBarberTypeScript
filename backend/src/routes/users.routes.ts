@@ -3,7 +3,7 @@ import multer from 'multer';
 import uploadConfig from '../config/upload';
 
 import CreateUserService from '../services/CreateUserServices';
-import UpdateUserAvatarService from '../services/CreateUserServices';
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
@@ -15,7 +15,6 @@ interface User {
   email: string;
   password?: string;
 }
-
 
 // Rota create User
 usersRouter.post('/', async (request, response) => {
@@ -52,12 +51,13 @@ usersRouter.patch(
         avatarFilename: request.file.filename,
       });
 
+      delete user.password;
+
       return response.json(user);
     } catch (err) {
       return response.status(400).json({ error: err.message });
     }
   },
 );
-
 
 export default usersRouter;
