@@ -16,7 +16,6 @@ interface User {
   password?: string;
 }
 
-
 // Rota create User
 usersRouter.post('/', async (request, response) => {
   try {
@@ -43,7 +42,7 @@ usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
-  async (request , response) => {
+  async (request, response) => {
     try {
       const updateUserAvatar = new UpdateUserAvatarService();
 
