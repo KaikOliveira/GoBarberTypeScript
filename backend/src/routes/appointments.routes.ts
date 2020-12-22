@@ -22,24 +22,20 @@ appointmentsRouter.get('/', async (request, response) => {
 
 // Rota create Appointment
 appointmentsRouter.post('/', async (request, response) => {
-  try {
-    const { provider_id, date } = request.body;
+  const { provider_id, date } = request.body;
 
-    // Verificação date disponivel
-    const parsedDate = parseISO(date);
+  // Verificação date disponivel
+  const parsedDate = parseISO(date);
 
-    // new Appointment
-    const creteAppointment = new CreateAppointmentService();
+  // new Appointment
+  const creteAppointment = new CreateAppointmentService();
 
-    const appointment = await creteAppointment.execute({
-      date: parsedDate,
-      provider_id,
-    });
+  const appointment = await creteAppointment.execute({
+    date: parsedDate,
+    provider_id,
+  });
 
-    return response.json(appointment);
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
+  return response.json(appointment);
 });
 
 export default appointmentsRouter;
