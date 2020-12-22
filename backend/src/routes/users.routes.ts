@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import multer from 'multer';
 import uploadConfig from '../config/upload';
 
@@ -15,6 +15,7 @@ interface User {
   email: string;
   password?: string;
 }
+
 
 // Rota create User
 usersRouter.post('/', async (request, response) => {
