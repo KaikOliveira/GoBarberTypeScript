@@ -10,20 +10,18 @@ import Button from '../../components/Button';
 import { Container, Content, Background } from './styles';
 
 const SignUp: React.FC = () => {
-
   function handleSubmit(data: object): void {
     console.log(data);
   }
 
   return (
     <Container>
-
       <Background />
 
       <Content>
         <img src={logoImg} alt="Go Barber" />
 
-        <Form onSubmit={handleSubmit} >
+        <Form onSubmit={handleSubmit}>
           <h1>Faça seu Cadastro</h1>
 
           <Input name="name" icon={FiUser} placeholder="Nome" />
@@ -37,15 +35,14 @@ const SignUp: React.FC = () => {
           />
 
           <Button type="submit">Cadastrar</Button>
-
         </Form>
 
-        <a href="">
+        <a href="logon">
           <FiArrowLeft />
           Voltar para o logon
         </a>
       </Content>
     </Container>
-  )
-}
+  );
+};
 export default SignUp;
