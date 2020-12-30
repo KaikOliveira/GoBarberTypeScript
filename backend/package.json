@@ -5,13 +5,11 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev:server": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts",
     "start": "ts-node src/index.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
-    "@types/cors": "^2.8.6",
-    "@types/express": "^4.17.6",
     "@types/mongodb": "^3.5.25",
     "@types/redis": "^2.8.25",
     "aws-sdk": "^2.725.0",
@@ -48,6 +46,8 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
     "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.9",
     "@types/hapi__joi": "^17.1.4",
     "@types/ioredis": "^4.17.3",
     "@types/jest": "^26.0.5",
