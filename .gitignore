@@ -9,3 +9,5 @@
 /frontend/node_modules
 
 /mobile/node_modules
+
+test/mobile/node_modules
