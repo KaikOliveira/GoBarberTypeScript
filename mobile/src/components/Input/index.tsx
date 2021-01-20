@@ -8,7 +8,6 @@ interface InputProps extends TextInputProps {
   icon: string;
 }
 
-<<<<<<< HEAD
 interface InputValueReference {
   value: string;
 }
@@ -51,18 +50,5 @@ const Input: React.FC<InputProps> = ({ name, icon, ...rest }) => {
     </Container>
   );
 };
-=======
-const Input: React.FC<InputProps> = ({ name, icon, ...rest}) => (
-  <Container>
-    <Icon name={icon} size={20} color="#666360" />
-
-    <TextInput
-      keyboardAppearance="dark"
-      placeholderTextColor="#666360"
-      {...rest}
-    />
-  </Container>
-);
->>>>>>> parent of e14f90f... intrgation unform
 
 export default Input;

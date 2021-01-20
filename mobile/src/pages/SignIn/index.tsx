@@ -44,14 +44,9 @@ const SignIn: React.FC = () => {
               <Title>Faça seu logon</Title>
             </View>
 
-<<<<<<< HEAD
             <Form ref={formRef} onSubmit={handleSignIn}>
               <Input name="email" icon="mail" placeholder="E-mail" />
               <Input name="password" icon="lock" placeholder="Senha" />
-=======
-            <Input name="email" icon="mail" placeholder="E-mail" />
-            <Input name="password"icon="lock"placeholder="Senha" />
->>>>>>> parent of e14f90f... intrgation unform
 
             <Button onPress={() =>{}} >Entrar</Button>
 

@@ -37,7 +37,6 @@ const SignUp: React.FC = () => {
               <Title>Crie sua conta</Title>
             </View>
 
-<<<<<<< HEAD
             <Form
               ref={formRef}
               onSubmit={(data) => {
@@ -52,16 +51,6 @@ const SignUp: React.FC = () => {
                 Entrar
               </Button>
             </Form>
-=======
-            <Input name="name" icon="user" placeholder="Nome" />
-
-            <Input name="email" icon="mail" placeholder="E-mail" />
-
-            <Input name="password"icon="lock"placeholder="Senha" />
-
-            <Button onPress={() =>{}} >Entrar</Button>
-
->>>>>>> parent of e14f90f... intrgation unform
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
