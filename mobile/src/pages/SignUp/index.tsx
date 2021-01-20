@@ -4,7 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   View,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -16,12 +16,7 @@ import Button from '../../components/Button';
 
 import logoImg from '../../assets/logo.png';
 
-import {
-  Container,
-  Title,
-  BackToSignIn,
-  BackToSignInText,
-} from './styles';
+import { Container, Title, BackToSignIn, BackToSignInText } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -53,9 +48,9 @@ const SignUp: React.FC = () => {
             >
               <Input name="name" icon="user" placeholder="Nome" />
               <Input name="email" icon="mail" placeholder="E-mail" />
-              <Input name="password"icon="lock"placeholder="Senha" />
+              <Input name="password" icon="lock" placeholder="Senha" />
 
-              <Button onPress={() => formRef.current?.submitForm() }>
+              <Button onPress={() => formRef.current?.submitForm()}>
                 Entrar
               </Button>
             </Form>
@@ -71,4 +66,3 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
-

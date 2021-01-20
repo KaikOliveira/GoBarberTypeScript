@@ -4,7 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   View,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -53,7 +53,7 @@ const SignIn: React.FC = () => {
 
             <Form ref={formRef} onSubmit={handleSignIn}>
               <Input name="email" icon="mail" placeholder="E-mail" />
-              <Input name="password"icon="lock"placeholder="Senha" />
+              <Input name="password" icon="lock" placeholder="Senha" />
 
               <Button
                 onPress={() => {
@@ -64,7 +64,9 @@ const SignIn: React.FC = () => {
               </Button>
             </Form>
 
-            <ForgotPassword onPress={() => {}}>
+            <ForgotPassword onPress={() => {
+              console.log('senha');
+            }}>
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
           </Container>
@@ -79,4 +81,3 @@ const SignIn: React.FC = () => {
 };
 
 export default SignIn;
-
