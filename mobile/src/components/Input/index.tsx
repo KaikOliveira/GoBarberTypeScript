@@ -33,7 +33,6 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
   const { registerField, defaultValue = '', fieldName, error } = useField(name);
   const inputValueRef = useRef<InputValueReference>({ value: defaultValue });
 
-
   useEffect(() => {
     registerField<string>({
       name: fieldName,
@@ -44,11 +43,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
 
   return (
     <Container>
-      <Icon
-        name={icon}
-        size={20}
-        color='#666360'
-      />
+      <Icon name={icon} size={20} color="#666360" />
       <TextInput
         ref={inputElementRef}
         keyboardAppearance="dark"
